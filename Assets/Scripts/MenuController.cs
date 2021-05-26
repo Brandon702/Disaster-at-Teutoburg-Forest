@@ -30,6 +30,8 @@ public class MenuController : MonoBehaviour
         gameObjects.Add(CreditsPanel);
         gameObjects.Add(PausePanel);
         gameObjects.Add(InstructionsPanel);
+        gameObjects.Add(GamePanel);
+        gameObjects.Add(ScenePanel);
 
         Disable();
         MainMenuPanel.SetActive(true);
@@ -46,9 +48,17 @@ public class MenuController : MonoBehaviour
     public void StartGame()
     {
         Disable();
-        GamePanel.SetActive(true);
+        ScenePanel.SetActive(true);
         GameController.Instance.state = eState.GAME;
         Debug.Log("Start Game");
+    }
+
+    public void ResumeGame()
+    {
+        Disable();
+        GamePanel.SetActive(true);
+        GameController.Instance.state = eState.GAME;
+        Debug.Log("Resume Game");
     }
 
     public void Options()

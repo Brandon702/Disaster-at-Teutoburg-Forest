@@ -53,6 +53,7 @@ public class GameController : MonoBehaviour
 
     //Dont touch these variables:
     bool forceOnce = true;
+    private int sceneSection = 0;
     //InputSystem input;
 
     public MenuController menuController;
@@ -86,6 +87,15 @@ public class GameController : MonoBehaviour
     public void GameSession()
     {
         //Run once on game start things go here
+    }
+
+    /// <summary>
+    /// Goes to the next in game scene panel
+    /// </summary>
+    public void Next()
+    {
+        //Go to the next section/panel based on position
+        //Use scene section int in an if/switch to progress
     }
 }
 
