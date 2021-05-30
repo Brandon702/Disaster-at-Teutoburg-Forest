@@ -53,7 +53,6 @@ public class GameController : MonoBehaviour
 
     //Dont touch these variables:
     bool forceOnce = true;
-    private int sceneSection = 0;
     //InputSystem input;
 
     public MenuController menuController;

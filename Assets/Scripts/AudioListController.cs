@@ -5,11 +5,11 @@ using UnityEngine.Audio;
 
 public class AudioListController : MonoBehaviour
 {
-    private AudioSource BGMSource;
-    private AudioSource SFXSource;
+    private AudioSource BGM;
+    private AudioSource SFX;
 
-    public AudioClip[] MenuBGMClipArray;
-    public AudioClip[] SFXClipArray;
+    public AudioSource[] MenuBGMClipArray;
+    public AudioSource[] SFXClipArray;
 
     public AudioMixer mixer;
 
@@ -17,11 +17,10 @@ public class AudioListController : MonoBehaviour
 
     private void Awake()
     {
-        BGMSource = GetComponent<AudioSource>();
-        SFXSource = GetComponent<AudioSource>();
+        BGM = GetComponent<AudioSource>();
+        SFX = GetComponent<AudioSource>();
     }
-
-    public float GetBGMVol()
+    public float GetBGM()
     {
         float value;
         bool result = mixer.GetFloat("BGM", out value);
@@ -37,19 +36,19 @@ public class AudioListController : MonoBehaviour
 
     private void Update()
     {
-        if(GetBGMVol() == -80f)
+        //Following Problems:
+        if(!(BGM.isPlaying) || BGM.clip == null)
         {
-            //runOnce = true;
+            runOnce = true;
         }
 
         //Main Menu
         if (GameController.Instance.state == eState.TITLE && runOnce == true)
         {
-            BGMSource.clip = MenuBGMClipArray[Random.Range(0, MenuBGMClipArray.Length)];
-            BGMSource.PlayOneShot(BGMSource.clip);
+            BGM.clip = MenuBGMClipArray[Random.Range(0, MenuBGMClipArray.Length)].clip;
+            BGM.PlayOneShot(BGM.clip, GetBGM());
             runOnce = false;
         }
-
 
         //Click
         //SFXSource.clip = SFXClipArray[0];
