@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 using UnityEngine;
 using System;
 using UnityEngine.Audio;
@@ -12,7 +11,7 @@ public class AudioController : MonoBehaviour
     private void Awake()
     {
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject); Uncomment this line for multi-scene audio support
         foreach(Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -25,7 +24,7 @@ public class AudioController : MonoBehaviour
         }
     }
 
-    public void Play (string name)
+    public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
@@ -34,39 +33,6 @@ public class AudioController : MonoBehaviour
             return;
         }
         s.source.Play();
-=======
-﻿using UnityEngine.Audio;
-using UnityEngine;
-using System.Collections;
-
-public class AudioController : MonoBehaviour
-{
-    public AudioMixer mixer;
-
-    public void SetLevelMST(float sliderValue)
-    {
-        mixer.SetFloat("MST", Mathf.Log10(sliderValue) * 20);
     }
 
-    public void SetLevelBGM(float sliderValue)
-    {
-        mixer.SetFloat("BGM", Mathf.Log10(sliderValue) * 20);
-    }
-
-    public void SetLevelSFX(float sliderValue)
-    {
-        mixer.SetFloat("SFX", Mathf.Log10(sliderValue) * 20);
-    }
-    public void SetLevelPitch(float sliderValue)
-    {
-        mixer.SetFloat("Pitch", sliderValue);
-    }
-
-
-    public void Mute(bool mute)
-    {
-        if (mute) mixer.SetFloat("MST", -80);
-        else mixer.SetFloat("MST", 0);
->>>>>>> Stashed changes
-    }
 }

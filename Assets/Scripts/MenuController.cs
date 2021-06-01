@@ -2,10 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< Updated upstream
 using UnityEngine.Audio;
-=======
->>>>>>> Stashed changes
 using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
@@ -25,11 +22,8 @@ public class MenuController : MonoBehaviour
     [Header("Other")]
     public GameController gameController;
     List<GameObject> gameObjects = new List<GameObject>();
-<<<<<<< Updated upstream
     public AudioMixer mixer;
     public AudioController audioController;
-=======
->>>>>>> Stashed changes
 
     private void Start()
     {
@@ -46,8 +40,6 @@ public class MenuController : MonoBehaviour
         MainMenuPanel.SetActive(true);
         GameController.Instance.state = eState.TITLE;
     }
-
-<<<<<<< Updated upstream
     private void Update()
     {
         //if state is title & audio with certain tag is not playing, select a sound & play it
@@ -77,8 +69,6 @@ public class MenuController : MonoBehaviour
         }
     }
 
-=======
->>>>>>> Stashed changes
     public void Disable()
     {
         foreach (GameObject gameObject in gameObjects)
@@ -163,7 +153,6 @@ public class MenuController : MonoBehaviour
         GameController.Instance.state = eState.PAUSE;
     }
 
-<<<<<<< Updated upstream
     public void SetLevelMST(float sliderValue)
     {
         mixer.SetFloat("MST", Mathf.Log10(sliderValue) * 20);
@@ -189,8 +178,6 @@ public class MenuController : MonoBehaviour
         else mixer.SetFloat("MST", 0);
     }
 
-=======
->>>>>>> Stashed changes
     public void ResetApplication()
     {
         SceneManager.LoadScene("Main");
