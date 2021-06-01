@@ -43,9 +43,10 @@ public class MenuController : MonoBehaviour
 
     private void Update()
     {
-        if (audioType == eState.TITLE && )
+        //if state is title & audio with certain tag is not playing, select a sound & play it
+        if (GameController.Instance.state == eState.TITLE)
         {
-
+            //Play either main menu sound track one or two
         }
     }
 
