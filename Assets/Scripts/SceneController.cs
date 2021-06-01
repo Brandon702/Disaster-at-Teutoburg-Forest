@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 class SceneController : MonoBehaviour
 {
-    private int sceneSection = 0;
+    public int sceneSection = 0;
     public TMP_Text sceneText;
     private MenuController menuController;
     public Sprite[] images;
@@ -20,7 +20,7 @@ class SceneController : MonoBehaviour
     public void Start()
     {
         //First scene
-        sceneText.text = "The year is 9AD, 36 years ago, The Roman Republic, one of the strongest & most influential nations in all of history had collapsed. In its place, a monarchy had been formed, turning the republic into the \"Roman Empire\".";
+        sceneText.text = "The year is 9AD, 36 years ago, The Roman Republic, one of the strongest & most influential nations in all of history had collapsed. In its place, an empire had been forged, turning the republic into the \"Roman Empire\".";
         menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
     }
 
@@ -78,7 +78,9 @@ class SceneController : MonoBehaviour
         else if (sceneSection == 8)
         {
             //Game over scenes go here
+            menuController.ScenePanel.SetActive(true);
             GameObject.Find("ScenePanel").GetComponent<Image>().sprite = images[3];
+            sceneText.text = "END GAME TEXT GOES HERE";
         }
         else
         {

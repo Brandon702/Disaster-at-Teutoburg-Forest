@@ -54,12 +54,13 @@ public class GameController : MonoBehaviour
     //Dont touch these variables:
     bool forceOnce = true;
     //InputSystem input;
+    private SceneController sceneController;
 
     public MenuController menuController;
 
     void Start()
     {
-
+        sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
     }
 
     void Update()
@@ -95,6 +96,12 @@ public class GameController : MonoBehaviour
     {
         //Go to the next section/panel based on position
         //Use scene section int in an if/switch to progress
+    }
+
+    private void EndGameScene()
+    {
+        //Goes to the final panel for the game over
+        sceneController.sceneSection++;
     }
 }
 
