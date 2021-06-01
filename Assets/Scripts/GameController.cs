@@ -53,6 +53,10 @@ public class GameController : MonoBehaviour
 
     //Dont touch these variables:
     bool forceOnce = true;
+<<<<<<< Updated upstream
+=======
+    private int sceneSection = 0;
+>>>>>>> Stashed changes
     //InputSystem input;
 
     public MenuController menuController;
