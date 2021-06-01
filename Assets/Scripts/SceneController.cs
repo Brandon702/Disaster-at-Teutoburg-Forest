@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using TMPro;
+using UnityEngine.UI;
 
 class SceneController : MonoBehaviour
 {
     private int sceneSection = 0;
     public TMP_Text sceneText;
+    public Sprite[] images;
+    //Map    0
+    //Talk   1
+    //Travel 2
+    //Forest 3
 
     public void Start()
     {
         //First scene
         sceneText.text = "The year is 9AD, 36 years ago, The Roman Republic, one of the strongest & most influential nations in all of history had collapsed. In its place, a monarchy had been formed, turning the republic into the \"Roman Empire\".";
+        GameObject.Find("ScenePanel").GetComponent<Image>().sprite = images[0];
     }
 
 
@@ -52,6 +59,7 @@ class SceneController : MonoBehaviour
         else if (sceneSection == 8)
         {
             //Start the game here
+            sceneText.text = "";
         }
         else if (sceneSection == 9)
         {
