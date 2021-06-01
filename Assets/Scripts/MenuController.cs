@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
@@ -21,6 +22,8 @@ public class MenuController : MonoBehaviour
     [Header("Other")]
     public GameController gameController;
     List<GameObject> gameObjects = new List<GameObject>();
+    public AudioMixer mixer;
+    public AudioController audioController;
 
     private void Start()
     {
@@ -36,6 +39,34 @@ public class MenuController : MonoBehaviour
         Disable();
         MainMenuPanel.SetActive(true);
         GameController.Instance.state = eState.TITLE;
+    }
+
+    private void Update()
+    {
+        if (audioType == eState.TITLE && )
+        {
+
+        }
+    }
+
+    private void OnEnable()
+    {
+        menuTrackPlayer();
+    }
+
+    private void menuTrackPlayer()
+    {
+        int trackPlay = UnityEngine.Random.Range(0, 1);
+        if (trackPlay == 1)
+        {
+            audioController.Play("Track10");
+            Debug.Log("Track 10 played");
+        }
+        else
+        {
+            audioController.Play("Track7");
+            Debug.Log("Track 7 played");
+        }
     }
 
     public void Disable()
@@ -120,6 +151,31 @@ public class MenuController : MonoBehaviour
         Disable();
         PausePanel.SetActive(true);
         GameController.Instance.state = eState.PAUSE;
+    }
+
+    public void SetLevelMST(float sliderValue)
+    {
+        mixer.SetFloat("MST", Mathf.Log10(sliderValue) * 20);
+    }
+
+    public void SetLevelBGM(float sliderValue)
+    {
+        mixer.SetFloat("BGM", Mathf.Log10(sliderValue) * 20);
+    }
+
+    public void SetLevelSFX(float sliderValue)
+    {
+        mixer.SetFloat("SFX", Mathf.Log10(sliderValue) * 20);
+    }
+    public void SetLevelPitch(float sliderValue)
+    {
+        mixer.SetFloat("Pitch", sliderValue);
+    }
+
+    public void Mute(bool mute)
+    {
+        if (mute) mixer.SetFloat("MST", -80);
+        else mixer.SetFloat("MST", 0);
     }
 
     public void ResetApplication()
