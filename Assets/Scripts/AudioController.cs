@@ -4,6 +4,7 @@ using UnityEngine.Audio;
 
 public class AudioController : MonoBehaviour
 {
+    //Note to self, try to change to a list of arrays for managing lists (IE: an array of BGM, an array of SFX, or other loose arrays
     public Sound[] sounds;
     public AudioMixer mixer;
     private string type;

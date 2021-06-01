@@ -9,6 +9,7 @@ class SceneController : MonoBehaviour
 {
     private int sceneSection = 0;
     public TMP_Text sceneText;
+    private MenuController menuController;
     public Sprite[] images;
     //Map    0
     //Talk   1
@@ -20,6 +21,7 @@ class SceneController : MonoBehaviour
         //First scene
         sceneText.text = "The year is 9AD, 36 years ago, The Roman Republic, one of the strongest & most influential nations in all of history had collapsed. In its place, a monarchy had been formed, turning the republic into the \"Roman Empire\".";
         GameObject.Find("ScenePanel").GetComponent<Image>().sprite = images[0];
+        menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
     }
 
 
@@ -43,6 +45,7 @@ class SceneController : MonoBehaviour
         else if (sceneSection == 3)
         {
             sceneText.text = "A young German advisor, Arminius however told Varus of a German revolt in the north that could be easily defeated if he marched immediately.";
+            GameObject.Find("ScenePanel").GetComponent<Image>().sprite = images[1];
         }
         else if (sceneSection == 4)
         {
@@ -51,19 +54,22 @@ class SceneController : MonoBehaviour
         else if (sceneSection == 5)
         {
             sceneText.text = "With that, Varus had began the march to the north, through the underdevloped & thin roads through Teutoburg forest.";
+            GameObject.Find("ScenePanel").GetComponent<Image>().sprite = images[2];
         }
         else if (sceneSection == 6)
         {
             sceneText.text = "This would prove to be a fatal mistake that would cause ripples throughout the empire for decades & eternal hatred to all \"barbaric\" people.";
         }
-        else if (sceneSection == 8)
+        else if (sceneSection == 7)
         {
             //Start the game here
             sceneText.text = "";
+            menuController.Disable();
         }
-        else if (sceneSection == 9)
+        else if (sceneSection == 8)
         {
             //Game over scenes go here
+            GameObject.Find("ScenePanel").GetComponent<Image>().sprite = images[3];
         }
         else
         {

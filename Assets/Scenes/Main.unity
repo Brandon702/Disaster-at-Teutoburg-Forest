@@ -4120,7 +4120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneText: {fileID: 956083821}
-  scenePanel: {fileID: 377083453}
   images:
   - {fileID: 21300000, guid: 830e2428841aea84d970ed09866d7eaf, type: 3}
   - {fileID: 21300000, guid: 089979860ce40f547bbaf05deddab0b5, type: 3}
