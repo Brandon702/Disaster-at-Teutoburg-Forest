@@ -11,6 +11,7 @@ class SceneController : MonoBehaviour
     public TMP_Text sceneText;
     private MenuController menuController;
     public Sprite[] images;
+    public bool once = false;
     //Map    0
     //Talk   1
     //Travel 2
@@ -20,8 +21,16 @@ class SceneController : MonoBehaviour
     {
         //First scene
         sceneText.text = "The year is 9AD, 36 years ago, The Roman Republic, one of the strongest & most influential nations in all of history had collapsed. In its place, a monarchy had been formed, turning the republic into the \"Roman Empire\".";
-        GameObject.Find("ScenePanel").GetComponent<Image>().sprite = images[0];
         menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
+    }
+
+    private void Update()
+    {
+        if (once == true)
+        {
+            GameObject.Find("ScenePanel").GetComponent<Image>().sprite = images[0];
+            once = false;
+        }
     }
 
 

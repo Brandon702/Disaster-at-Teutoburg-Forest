@@ -36,4 +36,15 @@ public class AudioController : MonoBehaviour
         s.source.Play();
     }
 
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " does not exist");
+            return;
+        }
+        s.source.Stop();
+    }
+
 }

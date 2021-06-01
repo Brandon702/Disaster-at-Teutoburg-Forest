@@ -24,6 +24,8 @@ public class MenuController : MonoBehaviour
     List<GameObject> gameObjects = new List<GameObject>();
     public AudioMixer mixer;
     public AudioController audioController;
+    private SceneController sceneController;
+    private int playing;
 
     private void Start()
     {
@@ -35,7 +37,7 @@ public class MenuController : MonoBehaviour
         gameObjects.Add(InstructionsPanel);
         gameObjects.Add(GamePanel);
         gameObjects.Add(ScenePanel);
-
+        sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
         Disable();
         MainMenuPanel.SetActive(true);
         GameController.Instance.state = eState.TITLE;
@@ -56,18 +58,38 @@ public class MenuController : MonoBehaviour
 
     private void menuTrackPlayer()
     {
-        int trackPlay = UnityEngine.Random.Range(0, 1);
+        int trackPlay = UnityEngine.Random.Range(0, 2);
         if (trackPlay == 1)
         {
             audioController.Play("Track10");
             Debug.Log("Track 10 played");
+            playing = 10;
         }
         else
         {
             audioController.Play("Track7");
             Debug.Log("Track 7 played");
+            playing = 7;
         }
     }
+
+    private void sceneTrackPlayer()
+    {
+        audioController.Stop("Track" + playing);
+        int trackPlay = UnityEngine.Random.Range(0, 2);
+        if (trackPlay == 1)
+        {
+            audioController.Play("Track5");
+            Debug.Log("Track 5 played");
+        }
+        else
+        {
+            audioController.Play("Track9");
+            Debug.Log("Track 9 played");
+        }
+    }
+
+
 
     public void Disable()
     {
@@ -81,6 +103,8 @@ public class MenuController : MonoBehaviour
         Disable();
         ScenePanel.SetActive(true);
         GameController.Instance.state = eState.GAME;
+        sceneController.once = true;
+        sceneTrackPlayer();
         Debug.Log("Start Game");
     }
 
@@ -166,6 +190,10 @@ public class MenuController : MonoBehaviour
     public void SetLevelSFX(float sliderValue)
     {
         mixer.SetFloat("SFX", Mathf.Log10(sliderValue) * 20);
+    }
+    public void SetLevelAMB(float sliderValue)
+    {
+        mixer.SetFloat("AMB", Mathf.Log10(sliderValue) * 20);
     }
     public void SetLevelPitch(float sliderValue)
     {
