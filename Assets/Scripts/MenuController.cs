@@ -42,14 +42,6 @@ public class MenuController : MonoBehaviour
         MainMenuPanel.SetActive(true);
         GameController.Instance.state = eState.TITLE;
     }
-    private void Update()
-    {
-        //if state is title & audio with certain tag is not playing, select a sound & play it
-        if (GameController.Instance.state == eState.TITLE)
-        {
-            //Play either main menu sound track one or two
-        }
-    }
 
     private void OnEnable()
     {
@@ -80,16 +72,46 @@ public class MenuController : MonoBehaviour
         if (trackPlay == 1)
         {
             audioController.Play("Track5");
+            playing = 5;
             Debug.Log("Track 5 played");
         }
         else
         {
             audioController.Play("Track9");
+            playing = 9;
             Debug.Log("Track 9 played");
         }
     }
 
-
+    private void gameTrackPlayer()
+    {
+        audioController.Stop("Track" + playing);
+        int trackPlay = UnityEngine.Random.Range(0, 4);
+        if (trackPlay == 1)
+        {
+            audioController.Play("Track1");
+            Debug.Log("Track 1 played");
+            playing = 1;
+        }
+        else if (trackPlay == 2)
+        {
+            audioController.Play("Track2");
+            Debug.Log("Track 2 played");
+            playing = 2;
+        }
+        else if (trackPlay == 3)
+        {
+            audioController.Play("Track3");
+            Debug.Log("Track 3 played");
+            playing = 3;
+        }
+        else
+        {
+            audioController.Play("Track4");
+            Debug.Log("Track 4 played");
+            playing = 4;
+        }
+    }
 
     public void Disable()
     {
@@ -106,6 +128,13 @@ public class MenuController : MonoBehaviour
         sceneController.once = true;
         sceneTrackPlayer();
         Debug.Log("Start Game");
+    }
+
+    public void GameplayStart()
+    {
+        Disable();
+        gameTrackPlayer();
+        GamePanel.SetActive(true);
     }
 
     public void ResumeGame()
