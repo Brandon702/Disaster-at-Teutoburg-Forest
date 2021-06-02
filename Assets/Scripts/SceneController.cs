@@ -68,6 +68,8 @@ class SceneController : MonoBehaviour
         else if (sceneSection == 6)
         {
             sceneText.text = "This would prove to be a fatal mistake that would cause ripples throughout the empire for decades & eternal hatred to all \"barbaric\" people.";
+            menuController.Disable();
+            menuController.GamePanel.SetActive(true);
         }
         else if (sceneSection == 7)
         {
