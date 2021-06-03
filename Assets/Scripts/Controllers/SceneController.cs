@@ -21,7 +21,7 @@ class SceneController : MonoBehaviour
     public void Start()
     {
         //First scene
-        sceneText.text = "The year is 9AD, 36 years ago, The Roman Republic, one of the strongest & most influential nations in all of history had collapsed. In its place, an empire had been forged, turning the republic into the \"Roman Empire\".";
+        sceneText.text = "The year is 9AD, 36 years ago, The Roman Republic, one of the strongest and most influential nations in all of history had collapsed. In its place, an empire had been forged, turning the republic into the \"Roman Empire\".";
         menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
     }
 
@@ -42,6 +42,7 @@ class SceneController : MonoBehaviour
     {
         //Go to the next section/panel based on position
         //Use scene section int in an if/switch to progress
+
         if(gameOver != true)
         {
             sceneSection++;
@@ -52,7 +53,7 @@ class SceneController : MonoBehaviour
             else if (sceneSection == 2)
             {
                 //Play scene one
-                sceneText.text = "Winter was approaching in this new \"Province\", & as per Roman Tradition, Varus had ordered his people to begin slowly retreating accross the rhine into more friendly territory.";
+                sceneText.text = "Winter was approaching in this new \"Province\", and as per Roman Tradition, Varus had ordered his people to begin slowly retreating accross the rhine into more friendly territory.";
             }
             else if (sceneSection == 3)
             {
@@ -61,16 +62,16 @@ class SceneController : MonoBehaviour
             }
             else if (sceneSection == 4)
             {
-                sceneText.text = "Chiefs of some German tribes had warned Varus that Arminus was lying, however Varus didnt believe them & prepared to march anyway.";
+                sceneText.text = "Chiefs of some German tribes had warned Varus that Arminus was lying, however Varus didnt believe them and prepared to march anyway.";
             }
             else if (sceneSection == 5)
             {
-                sceneText.text = "With that, Varus had began the march to the north, through the underdevloped & thin roads through Teutoburg forest.";
+                sceneText.text = "With that, Varus had began the march to the north, through the underdevloped and thin roads through Teutoburg forest.";
                 GameObject.Find("ScenePanel").GetComponent<Image>().sprite = images[2];
             }
             else if (sceneSection == 6)
             {
-                sceneText.text = "This would prove to be a fatal mistake that would cause ripples throughout the empire for decades & eternal hatred to all \"barbaric\" people.";
+                sceneText.text = "This would prove to be a fatal mistake that would cause ripples throughout the empire for decades and eternal hatred to all \"barbaric\" people.";
             }
             else if (sceneSection == 7)
             {

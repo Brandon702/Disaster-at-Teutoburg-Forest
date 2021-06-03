@@ -123,6 +123,24 @@ public class MenuController : MonoBehaviour
         playing = 6;
     }
 
+    public void AmbientOnePlayer()
+    {
+        audioController.Play("Amb1");
+        Debug.Log("Amb1 Played");
+    }
+
+    public void AmbientTwoPlayer()
+    {
+        audioController.Play("Amb2");
+        Debug.Log("Amb2 Played");
+    }
+
+    public void AmbientThreePlayer()
+    {
+        audioController.Play("Amb3");
+        Debug.Log("Amb3 Played");
+    }
+
     public void Disable()
     {
         foreach (GameObject gameObject in gameObjects)
