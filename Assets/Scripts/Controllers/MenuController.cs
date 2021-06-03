@@ -134,7 +134,7 @@ public class MenuController : MonoBehaviour
     {
         Disable();
         ScenePanel.SetActive(true);
-        GameController.Instance.state = eState.GAME;
+        GameController.Instance.state = eState.MENU;
         sceneController.once = true;
         sceneTrackPlayer();
         Debug.Log("Start Game");
@@ -144,6 +144,7 @@ public class MenuController : MonoBehaviour
     {
         Disable();
         gameTrackPlayer();
+        GameController.Instance.state = eState.GAME;
         GamePanel.SetActive(true);
     }
 

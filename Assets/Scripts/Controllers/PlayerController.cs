@@ -71,6 +71,16 @@ namespace Assets.Scripts
                 {
                     moving = new Vector2(0, 0);
                 }
+
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+                {
+                    moving = new Vector2(0, 0);
+                    menuController.Pause();
+                }
+            }
+            else
+            {
+                moving = new Vector2(0, 0);
             }
 
             if(collison.interaction == true && Input.GetKeyDown(KeyCode.G))
