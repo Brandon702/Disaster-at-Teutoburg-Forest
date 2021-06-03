@@ -15,6 +15,7 @@ public class MenuController : MonoBehaviour
     public GameObject InstructionsPanel;
     public GameObject GamePanel;
     public GameObject ScenePanel;
+    public GameObject InteractionPanel;
 
     [Header("Sub-Panels")]
     //Maybe?
@@ -37,6 +38,7 @@ public class MenuController : MonoBehaviour
         gameObjects.Add(InstructionsPanel);
         gameObjects.Add(GamePanel);
         gameObjects.Add(ScenePanel);
+        gameObjects.Add(InteractionPanel);
         sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
         Disable();
         MainMenuPanel.SetActive(true);
@@ -113,6 +115,14 @@ public class MenuController : MonoBehaviour
         }
     }
 
+    public void gameOverTrackPlayer()
+    {
+        audioController.Stop("Track" + playing);
+        audioController.Play("Track6");
+        Debug.Log("Track 6 played");
+        playing = 6;
+    }
+
     public void Disable()
     {
         foreach (GameObject gameObject in gameObjects)
@@ -187,6 +197,15 @@ public class MenuController : MonoBehaviour
             Disable();
             PausePanel.SetActive(true);
             GameController.Instance.state = eState.PAUSE;
+        }
+    }
+
+    public void Interaction()
+    {
+        if(GameController.Instance.state == eState.GAME)
+        {
+            Disable();
+            InteractionPanel.SetActive(true);
         }
     }
 

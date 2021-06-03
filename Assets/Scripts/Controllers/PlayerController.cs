@@ -12,10 +12,14 @@ namespace Assets.Scripts
         private Rigidbody2D rb;
         public Animator animator;
         SpriteRenderer spriteRenderer;
-        private Transform target;
+        private MenuController menuController;
         public PlayerController player;
-        [SerializeField] public float speed = 3f;
+        public Interactable interactable;
+        [SerializeField] public float speed = 5f;
         private Vector2 moving;
+        public NPCCollision collison;
+        public GameOverCollision gmCollision;
+        private SceneController sceneController;
 
         void Awake()
         {
@@ -23,6 +27,8 @@ namespace Assets.Scripts
             rb = GetComponent<Rigidbody2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             player = GetComponent<PlayerController>();
+            menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
+            sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
         }
 
         void FixedUpdate()
@@ -65,6 +71,14 @@ namespace Assets.Scripts
                 {
                     moving = new Vector2(0, 0);
                 }
+            }
+
+            if(collison.interaction == true && Input.GetKeyDown(KeyCode.G))
+            {
+                Debug.Log("Open interaction");
+                interactable.interactionVal = 1;
+                menuController.Interaction();
+                interactable.npcInteract();
             }
         }
     }
