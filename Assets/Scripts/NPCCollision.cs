@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 
 public class NPCCollision : MonoBehaviour
 {
-    public bool interaction = false;
+    public bool interaction;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         interaction = true;

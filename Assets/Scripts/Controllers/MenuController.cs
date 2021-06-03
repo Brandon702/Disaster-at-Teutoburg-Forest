@@ -151,6 +151,7 @@ public class MenuController : MonoBehaviour
     public void ResumeGame()
     {
         Disable();
+        Time.timeScale = 1;
         GamePanel.SetActive(true);
         GameController.Instance.state = eState.GAME;
         Debug.Log("Resume Game");
@@ -195,6 +196,7 @@ public class MenuController : MonoBehaviour
     {
         if (GameController.Instance.state == eState.GAME)
         {
+            Time.timeScale = 0;
             Disable();
             PausePanel.SetActive(true);
             GameController.Instance.state = eState.PAUSE;
