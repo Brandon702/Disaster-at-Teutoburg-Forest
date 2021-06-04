@@ -42,6 +42,7 @@ public class MenuController : MonoBehaviour
         sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
         Disable();
         MainMenuPanel.SetActive(true);
+        Time.timeScale = 0;
         GameController.Instance.state = eState.TITLE;
     }
 
@@ -162,6 +163,7 @@ public class MenuController : MonoBehaviour
     {
         Disable();
         gameTrackPlayer();
+        Time.timeScale = 1;
         GameController.Instance.state = eState.GAME;
         GamePanel.SetActive(true);
     }
