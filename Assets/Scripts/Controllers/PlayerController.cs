@@ -20,6 +20,7 @@ namespace Assets.Scripts
         public NPCCollision collison;
         public GameOverCollision gmCollision;
         private SceneController sceneController;
+        public GameObject text;
 
         void Awake()
         {
@@ -29,6 +30,7 @@ namespace Assets.Scripts
             player = GetComponent<PlayerController>();
             menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
             sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
+            text.SetActive(false);
         }
 
         void FixedUpdate()
