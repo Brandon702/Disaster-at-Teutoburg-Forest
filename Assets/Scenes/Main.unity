@@ -253,7 +253,7 @@ MonoBehaviour:
     audioType: 2
   - name: Amb3
     clip: {fileID: 8300000, guid: a54dfc0e80d3c38468112d790e91de76, type: 3}
-    volume: 0.1
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}

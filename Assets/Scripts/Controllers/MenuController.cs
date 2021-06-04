@@ -186,7 +186,7 @@ public class MenuController : MonoBehaviour
     {
         Disable();
         InstructionsPanel.SetActive(true);
-        GameController.Instance.state = eState.INSTRUCTIONS;
+        //GameController.Instance.state = eState.INSTRUCTIONS;
     }
 
     public void Credits()
